@@ -4,6 +4,14 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiTarget, FiUsers, FiTrendingUp, FiCheck, FiStar } from 'react-icons/fi';
 
+const heroGradient =
+  "bg-gradient-to-b from-indigo-900 via-purple-900 to-indigo-800";
+const accent = "text-pink-400";
+const pill =
+  "inline-block rounded-full px-3 py-1 bg-pink-100 text-pink-600 font-semibold text-xs tracking-wider uppercase shadow-sm";
+const glass =
+  "bg-white/70 backdrop-blur-md shadow-xl border border-white/20";
+
 export default function Home() {
   const [formData, setFormData] = useState({
     name: '',
@@ -19,215 +27,142 @@ export default function Home() {
     { number: '10K+', label: 'Leads Generated' },
   ];
 
+  const features = [
+    {
+      icon: <FiTarget className="w-10 h-10 text-pink-400" />,
+      title: 'Precision Targeting',
+      description: 'No mass-mailing: algorithmic audiences, human-verified, zero wasted clicks.'
+    },
+    {
+      icon: <FiUsers className="w-10 h-10 text-violet-600" />,
+      title: 'Qualified Prospects',
+      description: 'You get intros, not just emails. Every lead confirmed by a specialist.'
+    },
+    {
+      icon: <FiTrendingUp className="w-10 h-10 text-indigo-500" />,
+      title: 'Scalable Growth',
+      description: 'Whether you need 100 or 10,000 – growth adapts to your real sales ops.'
+    }
+  ];
+
   const testimonials = [
     {
       name: 'Sarah Johnson',
       role: 'CEO, TechStart',
-      content: 'Our lead generation has increased by 300% since working with this team.',
-      rating: 5
+      content: '“Lead quality doubled. We literally paused outgoing calls.”',
+      rating: 5,
+      avatar: 'https://randomuser.me/api/portraits/women/44.jpg'
     },
     {
       name: 'Michael Chen',
-      role: 'Marketing Director, GrowthCo',
-      content: 'The quality of leads we receive is exceptional. Highly recommended!',
-      rating: 5
+      role: 'CMO, GrowthCo',
+      content: '“Results in week one, not quarter one. Worth every cent.”',
+      rating: 5,
+      avatar: 'https://randomuser.me/api/portraits/men/36.jpg'
     },
     {
       name: 'Emma Davis',
       role: 'Founder, InnovateNow',
-      content: 'The ROI we&apos;ve seen is incredible. Best decision for our business.',
-      rating: 5
+      content: '“Real pipeline, not promises. Immediate ROI.”',
+      rating: 5,
+      avatar: 'https://randomuser.me/api/portraits/women/68.jpg'
     }
   ];
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const proofLogos = [
+    { src: "https://cdn.simpleicons.org/airbnb/9ca3af", alt: "Airbnb" },
+    { src: "https://cdn.simpleicons.org/stripe/9ca3af", alt: "Stripe" },
+    { src: "https://cdn.simpleicons.org/amazon/9ca3af", alt: "Amazon" },
+    { src: "https://cdn.simpleicons.org/google/9ca3af", alt: "Google" }
+  ];
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Here you would typically send this to your backend/email service
-    console.log('Form submitted:', formData);
     setSubmitted(true);
     setFormData({ name: '', email: '', phone: '', message: '' });
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50">
-      {/* Hero Section */}
-      <div className="container mx-auto px-4 py-16">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800">
-            Transform Your Business With Premium Leads
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Unlock unprecedented growth with our data-driven lead generation strategies. We connect you with high-intent customers who are ready to engage with your business.
-          </p>
+    <main className="min-h-screen bg-neutral-900 text-neutral-100 font-sans selection:bg-pink-300 selection:text-white">
+
+      {/*  HERO SECTION  */}
+      <section className={`relative overflow-hidden py-28 md:py-40 ${heroGradient}`}>
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <svg className="absolute right-0 top-10 w-[48vw] opacity-40"
+            viewBox="0 0 800 400" fill="none">
+            <ellipse cx="530" cy="220" rx="350" ry="120" fill="#f472b6" fillOpacity="0.13" />
+          </svg>
+          <svg className="absolute left-0 bottom-0 w-[39vw] opacity-30"
+            viewBox="0 0 800 400" fill="none">
+            <ellipse cx="230" cy="350" rx="200" ry="60" fill="#c4b5fd" fillOpacity="0.18" />
+          </svg>
+        </div>
+        <div className="relative z-10 text-center flex flex-col items-center">
+          <span className={pill}>B2B Lead Engine</span>
+          <motion.h1
+            initial={{ opacity:0, y:20 }}
+            animate={{ opacity:1, y:0 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+            className="text-5xl md:text-7xl font-extrabold tracking-tight mt-6 mb-6"
+          >
+            <span className="text-white">Stop hunting. Start </span>
+            <span className={accent}>closing.</span>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity:0, y:20 }}
+            animate={{ opacity:1, y:0 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+            className="text-xl md:text-2xl max-w-2xl mx-auto text-purple-200/90 leading-relaxed mb-10"
+          >
+            We deliver you intros to decision-makers ready to talk. Real companies, real deals ― 100% pre-qualified by analysts.
+          </motion.p>
+          {/* Proof logos */}
+          <div className="flex justify-center gap-6 mb-8 opacity-80 scale-90 hover:scale-100 transition">
+            {proofLogos.map(logo => (
+              <img key={logo.alt} src={logo.src} alt={logo.alt} className="h-8" />
+            ))}
+          </div>
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-            className="mt-8 flex justify-center gap-4"
+            transition={{ delay: 0.6, duration: 0.8 }}
+            className="flex justify-center gap-4"
           >
-            <button className="px-8 py-4 bg-blue-600 text-white rounded-lg shadow-lg hover:bg-blue-700 transition-all transform hover:scale-105">
-              Get Started Free
+            <button className="px-8 py-4 bg-pink-500 text-white font-bold text-lg rounded-full shadow-xl hover:bg-pink-400 hover:scale-105 transition-all">
+              Get started — free intro call
             </button>
-            <button className="px-8 py-4 bg-white text-blue-600 rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:scale-105">
-              Watch Demo
+            <button className="px-8 py-4 border-2 border-white/60 text-white font-bold text-lg rounded-full hover:bg-white/10 hover:scale-105 transition-all">
+              See how it works
             </button>
           </motion.div>
-        </motion.div>
+        </div>
+      </section>
 
-        {/* Stats Section */}
-        <div className="grid md:grid-cols-3 gap-8 my-20">
-          {stats.map((stat, index) => (
+      {/*  STATS - edge to edge, glass */}
+      <section className="relative z-10 -mt-16 mb-24">
+        <div className="max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+          {stats.map((stat, i) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
+              key={stat.label}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2, duration: 0.8 }}
-              className="bg-white p-8 rounded-2xl shadow-lg text-center transform hover:scale-105 transition-all"
+              transition={{ delay: i * 0.15 + 0.1 }}
+              className={`${glass} text-center py-8 px-6 rounded-2xl hover:bg-white/90 hover:shadow-2xl transition-all border-pink-100`}
             >
-              <h3 className="text-4xl font-bold text-blue-600 mb-2">{stat.number}</h3>
-              <p className="text-gray-600">{stat.label}</p>
+              <div className="text-4xl mb-2 font-black text-pink-500">{stat.number}</div>
+              <div className="text-neutral-700/90 font-semibold tracking-wider text-lg">{stat.label}</div>
             </motion.div>
           ))}
         </div>
+      </section>
 
-        {/* Features */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
-          {[
-            {
-              icon: <FiTarget className="w-8 h-8" />,
-              title: 'Precision Targeting',
-              description: 'Advanced algorithms identify and engage your ideal customers with pinpoint accuracy.'
-            },
-            {
-              icon: <FiUsers className="w-8 h-8" />,
-              title: 'Qualified Prospects',
-              description: 'Connect with pre-vetted leads who are actively seeking your solutions.'
-            },
-            {
-              icon: <FiTrendingUp className="w-8 h-8" />,
-              title: 'Scalable Growth',
-              description: 'Data-driven strategies that adapt and scale with your business needs.'
-            }
-          ].map((feature, index) => (
+      {/* FEATURES: Overlapping layer, vertical */}
+      <section className="relative max-w-6xl mx-auto px-6 z-10 mb-24">
+        <div className="grid md:grid-cols-3 gap-10">
+          {features.map((f, i) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2, duration: 0.8 }}
-              className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all"
-            >
-              <div className="text-blue-600 mb-4">{feature.icon}</div>
-              <h3 className="text-2xl font-semibold mb-4">{feature.title}</h3>
-              <p className="text-gray-600 leading-relaxed">{feature.description}</p>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Testimonials */}
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold text-center mb-12">What Our Clients Say</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.2, duration: 0.8 }}
-                className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all"
-              >
-                <div className="flex mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <FiStar key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                <p className="text-gray-600 mb-4 italic">&quot;{testimonial.content}&quot;</p>
-                <div>
-                  <p className="font-semibold">{testimonial.name}</p>
-                  <p className="text-gray-500 text-sm">{testimonial.role}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* Contact Form */}
-        <div className="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-xl border border-blue-50">
-          <h2 className="text-3xl font-bold text-center mb-4">Start Growing Today</h2>
-          <p className="text-gray-600 text-center mb-8">Join hundreds of successful businesses that trust us with their lead generation.</p>
-          {submitted ? (
-            <div className="text-center text-green-600 py-8">
-              <h3 className="text-2xl font-semibold">Thank you for your interest!</h3>
-              <p className="mt-2">We&apos;ll be in touch with you shortly.</p>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                  Full Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  required
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                />
-              </div>
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  required
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                />
-              </div>
-              <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
-                  Phone Number
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                />
-              </div>
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  rows={4}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                ></textarea>
-              </div>
-              <button
-                type="submit"
-                className="w-full bg-blue-600 text-white py-4 px-6 rounded-lg hover:bg-blue-700 transition-all transform hover:scale-105 flex items-center justify-center gap-2 text-lg font-semibold shadow-lg"
-              >
-                <FiCheck className="w-5 h-5" />
-                Get Started
-              </button>
-              <p className="text-center text-sm text-gray-500 mt-4">No credit card required • 14-day free trial</p>
-            </form>
-          )}
-        </div>
-      </div>
-    </main>
-  );
-}
+              key={f.title}
+              initial={{ opacity:0, y:18 }}
+              animate={{ opacity:1, y:0 }}
+              transition={{ delay: 0.25 + i*0.18 }}
+              className={`${glass} flex flex-col items-center text-center py-10 px
