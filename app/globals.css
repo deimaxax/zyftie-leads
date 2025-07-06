@@ -1,64 +1,67 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
 
-/* Base styles */
-:root {
-  color-scheme: dark;
-  font-size: 16px;
-}
-
-@media (max-width: 640px) {
+  /* Base styles */
   :root {
-    font-size: 14px;
+    color-scheme: dark;
+    font-size: 16px;
   }
-}
 
-body {
-  @apply bg-neutral-900 text-neutral-100 min-h-screen w-full overflow-x-hidden;
-  font-feature-settings: "ss01", "ss02", "cv01", "cv02";
-}
+  @media (max-width: 640px) {
+    :root {
+      font-size: 14px;
+    }
+  }
 
-/* Custom glass effect */
-.glass {
-  @apply bg-white/10 backdrop-blur-lg;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
+  body {
+    @apply min-h-screen w-full overflow-x-hidden;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02";
+    /* Remove the conflicting background and text colors */
+  }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
+  /* Custom glass effect */
+  .glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
 
-/* Better font rendering */
-* {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
 
-::selection {
-  background: #f472b6; /* Tailwind pink-400 */
-  color: #fff;
-}
+  /* Better font rendering */
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-/* Remove ugly Chrome autofill bg on forms */
-input:-webkit-autofill,
-textarea:-webkit-autofill,
-select:-webkit-autofill {
-  box-shadow: 0 0 0 30px #fff0 inset !important;
-  -webkit-box-shadow: 0 0 0 30px #fff0 inset !important;
-  -webkit-text-fill-color: #111 !important;
-}
+  ::selection {
+    background: #06b6d4; /* Tailwind cyan-400 to match your design */
+    color: #000;
+  }
 
-/* Smoothen everything else out */
-input, textarea, select, button {
-  @apply rounded-xl focus:ring-2 focus:ring-pink-400 transition !outline-none !border-neutral-300;
-}
+  /* Remove ugly Chrome autofill bg on forms */
+  input:-webkit-autofill,
+  textarea:-webkit-autofill,
+  select:-webkit-autofill {
+    box-shadow: 0 0 0 30px transparent inset !important;
+    -webkit-box-shadow: 0 0 0 30px transparent inset !important;
+    -webkit-text-fill-color: #111 !important;
+  }
 
-/* Custom utility for glassy look */
-.glass {
-  backdrop-filter: blur(10px);
-  background: rgba(255,255,255,0.72);
-  border: 1px solid rgba(255,255,255,0.18);
-  box-shadow: 0 4px 48px 4px rgba(0,0,0,0.08);
-}
+  /* Smoothen everything else out */
+  input, textarea, select, button {
+    @apply rounded-xl focus:ring-2 focus:ring-cyan-400 transition !outline-none;
+  }
+
+  /* Custom utility for glassy look */
+  .glass-effect {
+    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 4px 48px 4px rgba(0,0,0,0.1);
+  }
