@@ -145,7 +145,7 @@ export default function Home() {
                     <FiStar key={i} className="w-5 h-5 text-yellow-400 fill-current" />
                   ))}
                 </div>
-                <p className="text-gray-600 mb-4 italic">"{testimonial.content}"</p>
+                <p className="text-gray-600 mb-4 italic">&quot;{testimonial.content}&quot;</p>
                 <div>
                   <p className="font-semibold">{testimonial.name}</p>
                   <p className="text-gray-500 text-sm">{testimonial.role}</p>
