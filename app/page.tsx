@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
 
 export default function Home() {
   const [formData, setFormData] = useState({
@@ -62,7 +61,7 @@ export default function Home() {
           {submitted ? (
             <div className="text-center text-green-600 py-8">
               <h3 className="text-2xl font-semibold">Thank you for your interest!</h3>
-              <p className="mt-2">We'll be in touch with you shortly.</p>
+              <p className="mt-2">We&apos;ll be in touch with you shortly.</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
