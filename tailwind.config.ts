@@ -9,11 +9,21 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        blue: {
-          50: '#f0f9ff',
-          600: '#2563eb',
-          700: '#1d4ed8',
-        },
+        'primary': '#f472b6', // pink-400
+        'accent': '#a21caf', // purple-800
+        'dark': '#18181b', // zinc-900
+        'muted': '#9ca3af', // gray-400
+      },
+      fontFamily: {
+        'sans': ['Inter', 'ui-sans-serif', 'system-ui'],
+        'display': ['Clash Display', 'Inter', 'sans-serif']
+      },
+      backgroundImage: {
+        'hero-gradient': 'linear-gradient(120deg,#111827 0%,#6610f2 85%)',
+      },
+      borderRadius: {
+        'lg': '1.2rem',
+        'xl': '1.6rem'
       },
     },
   },

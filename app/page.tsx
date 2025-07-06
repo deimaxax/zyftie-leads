@@ -1,8 +1,8 @@
 'use client';
 
-import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FiTarget, FiUsers, FiTrendingUp, FiCheck, FiStar } from 'react-icons/fi';
+import { FiTarget, FiUsers, FiTrendingUp, FiStar } from 'react-icons/fi';
+import Image from 'next/image';
 
 const heroGradient =
   "bg-gradient-to-b from-indigo-900 via-purple-900 to-indigo-800";
@@ -13,13 +13,6 @@ const glass =
   "bg-white/70 backdrop-blur-md shadow-xl border border-white/20";
 
 export default function Home() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: ''
-  });
-  const [submitted, setSubmitted] = useState(false);
 
   const stats = [
     { number: '500+', label: 'Satisfied Clients' },
@@ -49,21 +42,21 @@ export default function Home() {
     {
       name: 'Sarah Johnson',
       role: 'CEO, TechStart',
-      content: '“Lead quality doubled. We literally paused outgoing calls.”',
+      content: '"Lead quality doubled. We literally paused outgoing calls."',
       rating: 5,
       avatar: 'https://randomuser.me/api/portraits/women/44.jpg'
     },
     {
       name: 'Michael Chen',
       role: 'CMO, GrowthCo',
-      content: '“Results in week one, not quarter one. Worth every cent.”',
+      content: '"Results in week one, not quarter one. Worth every cent."',
       rating: 5,
       avatar: 'https://randomuser.me/api/portraits/men/36.jpg'
     },
     {
       name: 'Emma Davis',
       role: 'Founder, InnovateNow',
-      content: '“Real pipeline, not promises. Immediate ROI.”',
+      content: '"Real pipeline, not promises. Immediate ROI."',
       rating: 5,
       avatar: 'https://randomuser.me/api/portraits/women/68.jpg'
     }
@@ -76,11 +69,6 @@ export default function Home() {
     { src: "https://cdn.simpleicons.org/google/9ca3af", alt: "Google" }
   ];
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setSubmitted(true);
-    setFormData({ name: '', email: '', phone: '', message: '' });
-  };
 
   return (
     <main className="min-h-screen bg-neutral-900 text-neutral-100 font-sans selection:bg-pink-300 selection:text-white">
@@ -119,7 +107,14 @@ export default function Home() {
           {/* Proof logos */}
           <div className="flex justify-center gap-6 mb-8 opacity-80 scale-90 hover:scale-100 transition">
             {proofLogos.map(logo => (
-              <img key={logo.alt} src={logo.src} alt={logo.alt} className="h-8" />
+              <Image 
+                key={logo.alt} 
+                src={logo.src} 
+                alt={logo.alt} 
+                width={32} 
+                height={32} 
+                className="h-8 w-8"
+              />
             ))}
           </div>
           <motion.div 
@@ -165,4 +160,50 @@ export default function Home() {
               initial={{ opacity:0, y:18 }}
               animate={{ opacity:1, y:0 }}
               transition={{ delay: 0.25 + i*0.18 }}
-              className={`${glass} flex flex-col items-center text-center py-10 px
+              className={`${glass} flex flex-col items-center text-center py-10 px-8 rounded-2xl hover:scale-105 transition-all`}
+            >
+              <div className="mb-6">{f.icon}</div>
+              <h3 className="text-2xl font-bold mb-4 text-neutral-800">{f.title}</h3>
+              <p className="text-neutral-600">{f.description}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* TESTIMONIALS */}
+      <section className="relative max-w-6xl mx-auto px-6 z-10 mb-24">
+        <div className="grid md:grid-cols-3 gap-10">
+          {testimonials.map((t, i) => (
+            <motion.div
+              key={t.name}
+              initial={{ opacity:0, y:20 }}
+              animate={{ opacity:1, y:0 }}
+              transition={{ delay: 0.3 + i*0.2 }}
+              className={`${glass} p-8 rounded-2xl hover:scale-105 transition-all`}
+            >
+              <div className="flex items-center mb-6">
+                <Image 
+                  src={t.avatar} 
+                  alt={t.name} 
+                  width={48} 
+                  height={48} 
+                  className="w-12 h-12 rounded-full mr-4" 
+                />
+                <div>
+                  <div className="font-bold text-neutral-800">{t.name}</div>
+                  <div className="text-sm text-neutral-600">{t.role}</div>
+                </div>
+              </div>
+              <p className="text-lg text-neutral-700 italic mb-4">{t.content}</p>
+              <div className="flex">
+                {[...Array(t.rating)].map((_, i) => (
+                  <FiStar key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+    </main>
+  );
+}
