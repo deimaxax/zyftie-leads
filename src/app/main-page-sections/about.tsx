@@ -17,7 +17,7 @@ export default function AboutSection() {
               Why Choose Zyftie for Your Next Project?
             </h2>
             <p className="text-xl text-gray-600 mb-8">
-              We're not just another development agency. We're your strategic technology partner, committed to delivering solutions that drive real business results.
+              We&apos;re not just another development agency. We&apos;re your strategic technology partner, committed to delivering solutions that drive real business results.
             </p>
             
             <div className="space-y-6">

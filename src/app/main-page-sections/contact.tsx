@@ -39,7 +39,7 @@ export default function ContactSection({ formData, handleInputChange, handleSubm
             Ready to Transform Your Business?
           </h2>
           <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-            Let's discuss your project requirements and create a custom solution that drives results. Get started with a free consultation today.
+            Let&apos;s discuss your project requirements and create a custom solution that drives results. Get started with a free consultation today.
           </p>
         </div>
         
@@ -85,7 +85,7 @@ export default function ContactSection({ formData, handleInputChange, handleSubm
               <div className="space-y-3 text-blue-100">
                 <div className="flex items-center gap-3">
                   <span className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-xs font-bold text-white">1</span>
-                  <span>We'll schedule a free 30-minute consultation call</span>
+                  <span>We&apos;ll schedule a free 30-minute consultation call</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <span className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-xs font-bold text-white">2</span>

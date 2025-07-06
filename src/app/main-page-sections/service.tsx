@@ -134,7 +134,7 @@ export default function ServicesSection() {
           </h2>
           
           <p className="text-large text-gray-600 max-w-3xl mx-auto">
-            We don't just build software—we engineer competitive advantages. Every solution is designed to scale, perform, and drive measurable business impact.
+            We don&apos;t just build software—we engineer competitive advantages. Every solution is designed to scale, perform, and drive measurable business impact.
           </p>
         </div>
 
@@ -207,7 +207,7 @@ export default function ServicesSection() {
               </h3>
               
               <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-                Stop wasting time with mediocre solutions. Let's engineer something that actually moves the needle for your business.
+                Stop wasting time with mediocre solutions. Let&apos;s engineer something that actually moves the needle for your business.
               </p>
             </div>
 

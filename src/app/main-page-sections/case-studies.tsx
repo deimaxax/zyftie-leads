@@ -124,7 +124,7 @@ export default function CaseStudiesSection() {
           </h2>
           
           <p className="text-large text-gray-600 max-w-3xl mx-auto">
-            Don't just take our word for it. See how we've transformed businesses across industries with solutions that deliver measurable, game-changing results.
+            Don&apos;t just take our word for it. See how we&apos;ve transformed businesses across industries with solutions that deliver measurable, game-changing results.
           </p>
         </div>
 
@@ -179,7 +179,7 @@ export default function CaseStudiesSection() {
                   {/* Testimonial */}
                   <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-gray-200">
                     <blockquote className="text-gray-700 italic mb-4">
-                      "{study.testimonial}"
+                      &ldquo;{study.testimonial}&rdquo;
                     </blockquote>
                     <cite className="text-sm font-semibold text-black not-italic">
                       — {study.author}

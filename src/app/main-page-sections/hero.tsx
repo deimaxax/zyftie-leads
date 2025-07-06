@@ -81,7 +81,7 @@ export default function HeroSection({ formData, handleInputChange, handleSubmit 
               </h1>
               
               <p className="text-large text-gray-600 max-w-xl leading-relaxed">
-                Stop settling for mediocre tech. We engineer enterprise-grade solutions that don't just work—they <strong className="text-black">crush the competition</strong> and drive exponential growth.
+                Stop settling for mediocre tech. We engineer enterprise-grade solutions that don&apos;t just work—they <strong className="text-black">crush the competition</strong> and drive exponential growth.
               </p>
             </div>
 
